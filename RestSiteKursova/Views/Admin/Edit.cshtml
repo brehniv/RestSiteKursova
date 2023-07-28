@@ -1,0 +1,20 @@
+﻿@model MenuItem
+@{
+    ViewBag.Title = "Редагування | Козацька Справа";
+
+}
+<div class="container">
+    <h2>Редагування страви «@Model.Name»</h2>
+    <form method="post" asp-action="Edit">
+    @using (Html.BeginForm())
+    {
+        @Html.EditorForModel()
+        <div class="btn">
+            <div class="input-submit">
+            <input type="submit" value="Зберегти" />
+            </div>
+            <a class="button" asp-action="ChangeMenu"> Відмінити</a>
+        </div>
+    }
+    </form>
+</div>

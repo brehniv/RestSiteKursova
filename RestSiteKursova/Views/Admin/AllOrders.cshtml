@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Order>
+@{
+    ViewData["Title"] = "Всі замовлення | Козацька справа";
+}
+
+<div class="container">
+    <h2>Всі замовлення</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Номер замовлення
+            </th>
+            <th>
+                Ім'я
+            </th>
+            <th>
+                Прізвище
+            </th>
+            <th>
+                Адреса доставки
+            </th>
+            <th>
+                Дата Замовлення
+            </th>
+
+            <th>
+                Статус
+            </th>
+            <th>Дія</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.adres)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.ordertime)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem=>item.status)
+                </td>
+                <td>
+                        <a class="button" style="padding:0;" asp-action="DeleteOrder" asp-route-id="@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+</div>

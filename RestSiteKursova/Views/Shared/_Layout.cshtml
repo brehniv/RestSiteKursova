@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
+    <link rel="stylesheet" href="@ViewBag.Style" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="icon" href="~/img/Ico.svg" type="image/svg">
+
+
+</head>
+<body>
+    <header>
+        <div class='container'>
+            <div class='header-line'>
+                <div class='header-logo'>
+                    <a href="/">
+                    <img src="~/img/logo.png" style="height:5rem;" href alt="">
+                    </a>
+                </div>
+
+                <div class='nav'>
+                    <a class='nav-item' href="/">ГОЛОВНА</a>
+                    <a class='nav-item' href="/Menu">МЕНЮ</a>
+                    <a class='nav-item' asp-controller="Home" asp-action="FAQ">ПРО НАС</a>
+                    <a class='nav-item' href="#"></a>
+                </div>
+
+                
+
+                <div class='phone'>
+                    <div class='phone-holder'>
+                        <div class='phone-img'>
+                            <img src="~/img/phone.png" alt="">
+                        </div>
+
+                        <div class='number'><a class='num' href='#'>+380502257755</a></div>
+                    </div>
+
+                    <div class='phone-text'>
+                        Телефон <br> для консультації
+                    </div>
+                </div>
+                @if (User.Identity.IsAuthenticated)
+                    {
+                        <p>@User.Identity.Name</p>
+                    }
+                    <div class="btn">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        
+                        <form method="post" asp-controller="Account" asp-action="Logout">
+                            @if (User.IsInRole("admin"))
+                            {
+                                <a class='button' asp-controller="Admin" asp-action="Index">Адмін Панель</a>
+                            }
+                            @if (User.IsInRole("courier"))
+                            {
+                                <a class='button' asp-controller="Courier" asp-action="Index">Кур'єр меню</a>
+                            }
+                            <a class='button' asp-controller="ShopCart" asp-action="Index">Кошик</a>
+                            <a class='button' asp-controller="Account" asp-action="">Кабінет</a>
+                            <a class="button">
+                                <input type="submit" value="Вийти" style="cursor:pointer; background:transparent; color:white;border-style:none;"></a>
+                        </form>
+                    }
+                    else
+                    {
+                        <a class="button" asp-controller="Account" asp-action="Login">Вхід</a>
+                        <a class="button" asp-controller="Account" asp-action="Register">Реєстрація</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </header>
+    <div style="display:flex; justify-content:center; align-items:center; padding-top:30px;">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

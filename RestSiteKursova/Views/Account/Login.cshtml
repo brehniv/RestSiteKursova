@@ -1,0 +1,29 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Авторизація | Козацька Справа";
+    ViewBag.Style = "~/css/Login.css";
+}
+<div class="container">
+<h2>Вхід в профіль</h2>
+<form method="post" asp-controller="Account" asp-action="Login"
+      asp-route-returnUrl="@Model.ReturnUrl">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="text-field" >
+            <label class="text-field__label" asp-for="Email"></label>
+            <input class="text-field__input" asp-for="Email" type="text" placeholder="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+        <div class="text-field">
+            <label class="text-field__label"  asp-for="Password"></label>
+            <input class="text-field__input" asp-for="Password" type="password" placeholder="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="text-field">
+            <label asp-for="RememberMe"></label>
+            <input type="checkbox" asp-for="RememberMe" />
+    </div>
+    <div class="input-submit">
+        <input type="submit" value="Ввійти" />
+    </div>
+</form>
+</div>

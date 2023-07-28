@@ -1,0 +1,37 @@
+﻿
+@model MenuItem
+@{
+    ViewBag.Title = "Додати справу | Козацька Справа";
+
+    ViewBag.Style = "~/css/Login.css";
+}
+<div class="container">
+<form method="post" asp-action="AddNewItem">
+  
+        <div class="text-field">
+            <label class="text-field__label" asp-for="Name"></label>
+            <input class="text-field__input" asp-for="Name" placeholder="Name" />
+        </div>
+
+        <div class="text-field">
+            <label class="text-field__label" asp-for="Description"></label>
+            <input class="text-field__input" asp-for="Description" placeholder="Description" />
+        </div>
+
+        <div class="text-field">
+            <label class="text-field__label" asp-for="Price"></label>
+            <input class="text-field__input" asp-for="Price" placeholder="Price" />
+        </div>
+
+        <div class="text-field">
+            <label class="text-field__label" asp-for="img"></label>
+            <input class="text-field__input" asp-for="img" placeholder="/img/exapmle.png" />
+        </div>
+         <div class="input-submit">
+            <input type="submit" value="Створити" />
+            <div class="btn">
+                <a class="button" asp-action="ChangeMenu"> Відмінити</a>
+            </div>
+ </div>
+</form>
+</div>

@@ -1,0 +1,53 @@
+﻿@model ShopCartViewModel
+
+@{
+
+    ViewBag.Style = "~/css/Table.css";
+    ViewBag.Title= "Кошик | Козацька Справа";
+}
+<div class="container" style="display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-flow: column wrap;">
+    <h2>Кошик</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                Кількість
+            </th>
+            <th>
+            Страва
+            </th>
+            <th>
+                Ціна
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach(var el in Model.shopCart.listShopItems)
+    {
+             <tr>
+                  <td>
+                  1
+                </td>
+                <td>
+                  @el.item.Name
+                </td>
+                <td>
+                  @el.item.Price
+                </td>
+                <td>
+                    <a class="button" style="padding:0;" asp-controller="ShopCart" asp-action="DeleteOnCart" asp-route-id="@el.Id">Видалити</a>
+                </td>
+                </tr>
+    }
+    </table>
+
+
+    <a class="button" asp-controller="Order" asp-action="Index">Оплатити</a>
+
+</div>

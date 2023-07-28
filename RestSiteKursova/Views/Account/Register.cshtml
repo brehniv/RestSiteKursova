@@ -1,0 +1,41 @@
+﻿@model RegisterViewModel
+@using Microsoft.AspNetCore.Identity
+
+@{
+    ViewData["Title"] = "Реєстрація | Козацька Справа";
+    ViewBag.Style = "~/css/Login.css";
+
+}
+<div class="container">
+<h2>Реєстрація нового користувача</h2>
+<form method="post" asp-controller="Account" asp-action="Register">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="text-field">
+            <label class="text-field__label" asp-for="Email"></label>
+            <input class="text-field__input" asp-for="Email" type="email" placeholder="Email" />
+        <span asp-validation-for="Email"></span>
+    </div >
+        <div class="text-field">
+            <label class="text-field__label" asp-for="Year"></label>
+            <input class="text-field__input" asp-for="Year" type="text" placeholder="Year of birth" />
+        <span asp-validation-for="Year"></span>
+    </div>
+        <div class="text-field">
+            <label class="text-field__label" asp-for="Password"></label>
+            <input class="text-field__input" asp-for="Password" type="password" placeholder="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+        <div class="text-field">
+            <label class="text-field__label" asp-for="PasswordConfirm"></label>
+            <input class="text-field__input" asp-for="PasswordConfirm" type="password" placeholder="Confirm password" />
+        <span asp-validation-for="PasswordConfirm"></span>
+    </div>
+        <div class="text-field">
+            <label>Стати кур'єром?</label>
+            <input type="checkbox" asp-for="roles" value="true"/>
+    </div>
+        <div class="input-submit">
+            <input type="submit" value="Зареєструватися" />
+        </div>
+</form>
+</div>

@@ -1,0 +1,61 @@
+﻿@using RestSiteKursova.Models
+@model IEnumerable<Order>
+@{
+    ViewBag.Title = "Невиконані | Козацька Справа";
+
+}
+ 
+<div class="container">
+ <h2>Список невиконаних замовлень</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Номер замовлення
+            </th>
+            <th>
+                Ім'я
+            </th>
+            <th>
+                Прізвище
+            </th>
+            <th>
+                Адреса доставки
+            </th>
+            <th>
+                Дата Замовлення
+            </th>
+
+            <th>
+                Статус
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.adres)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.ordertime)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem=>item.status)
+                </td>
+                <td>
+
+                    <a class="local" asp-action="Edit" asp-controller="Courier" asp-route-id="@item.id">Edit</a>
+                </td>
+            </tr>
+        }
+</div>

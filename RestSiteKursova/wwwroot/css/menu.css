@@ -1,0 +1,135 @@
+﻿.product-all {
+    padding: 0;
+}
+
+.product-wrapper {
+    display: block;
+    width: 10%;
+    float: left;
+}
+@media only screen and (min-width: 1500px) {
+    .product-wrapper {
+        width: 20%;
+    }
+
+    .header {
+        height: 100vh;
+    }
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+.product-item {
+    width: 250px;
+    text-align: center;
+    margin: 0 auto;
+    border-bottom: 2px solid #F5F5F5;
+    background: white;
+    font-family: "Open Sans";
+    transition: .3s ease-in;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+
+    .product-item:hover {
+        border-bottom: 2px solid #fc5a5a;
+    }
+
+    .product-item img {
+        padding: 5px;
+        display: block;
+        width: 100%;
+        height:300px;
+    }
+
+.product-list {
+    background: #fafafa;
+    margin-top: 10px;
+}
+
+    .product-list h3 {
+        font-size: 1.2em;
+        font-weight: 400;
+        color: #444444;
+        margin: 0 0 10px 0;
+    }
+
+.price {
+    font-size: 1.5em;
+    color: #fc5a5a;
+    display: block;
+    margin-bottom: 25px;
+}
+
+.product-item.button:hover {
+    background: #fc5a5a;
+    color: white;
+}
+
+.menu-text {
+    color: #D67E35;
+    font-family: 'Tinos', serif;
+    font-size: 18rem;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+}
+
+
+.example {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+    .example .fadedbox {
+        border-radius: 10px;
+        background-color: #666666;
+        position: absolute;
+        height: 300px;
+        width: 250px;
+        top: 0;
+        left: 0;
+        color: #fff;
+        -webkit-transition: all 300ms ease-out;
+        -moz-transition: all 300ms ease-out;
+        -o-transition: all 300ms ease-out;
+        -ms-transition: all 300ms ease-out;
+        transition: all 300ms ease-out;
+
+        opacity: 0;
+        padding-top:50%;
+    }
+
+    .example:hover .fadedbox {
+        opacity: 0.8;
+    }
+
+    .example .text {
+        -webkit-transition: all 300ms ease-out;
+        -moz-transition: all 300ms ease-out;
+        -o-transition: all 300ms ease-out;
+        -ms-transition: all 300ms ease-out;
+        transition: all 300ms ease-out;
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+    }
+
+    .example .title {
+        font-size: 20px;
+        opacity: 0;
+        transition-delay: 0.2s;
+        transition-duration: 0.3s;
+    }
+
+    .example:hover .title,
+    .example:focus .title {
+        opacity: 1;
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+    }
+

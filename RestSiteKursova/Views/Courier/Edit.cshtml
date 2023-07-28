@@ -1,0 +1,24 @@
+﻿@model NotReadyOrder
+@{
+    ViewBag.Style = "~/css/EditOrder.css";
+    ViewBag.Title = "Статус Замовлення | Козацька Справа";
+
+}
+<div class="container">
+    <h2>Редагування замовлення «@Model.id»</h2>
+    <form method="post" asp-action="Edit">
+        <label class="text-field__label" asp-for="status"></label>
+        <select asp-for="status" class="select-css">
+            <option value="applied to work">Прийняте в роботу</option>
+            <option value="ready to give">Готове до видачі</option>
+            <option value="finished">Виконано</option>
+
+        </select>
+        <div class="btn">
+        <div class="input-submit">
+            <input type="submit" value="Зберегти" />
+        </div>
+           <a class="button" asp-action="ListNotReadyOrders"> Відмінити</a>
+        </div>
+    </form>
+</div>

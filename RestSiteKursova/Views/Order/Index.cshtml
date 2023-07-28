@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Замовлення | Козацька Справа";
+    ViewBag.Style = "~/css/Login.css";
+}
+@model Order
+
+<div class="container">
+
+    
+    <h2>Оформлення замовлення</h2>
+    <form asp-action="Index" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="text-field">
+            <label class="text-field__label" asp-for="name"></label>
+            <input class="text-field__input" asp-for="name"/>
+            <span asp-validation-for="name"></span>
+        </div>
+        <div class="text-field">
+            <label class="text-field__label" asp-for="surname"></label>
+            <input class="text-field__input" asp-for="surname" />
+            <span asp-validation-for="surname"></span>
+        </div>
+        <div class="text-field">
+            <label class="text-field__label" asp-for="adres"></label>
+            <input class="text-field__input" asp-for="adres" />
+            <span asp-validation-for="adres"></span>
+        </div>
+        <div class="text-field">
+            <label class="text-field__label" asp-for="phone"></label>
+            <input class="text-field__input" asp-for="phone" type="number"/>
+            <span asp-validation-for="phone"></span>
+        </div>
+    <div class="input-submit">
+        <input type="submit" value="Оформити" />
+    </div>
+
+    </form>
+</div>

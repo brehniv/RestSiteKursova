@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Style = "~/css/menu.css";
+    ViewData["Title"] = "Меню | Козацька Справа";
+}
+@using RestSiteKursova.Models
+@model IEnumerable<MenuItem> 
+<div class="product-all">
+    <ul class="product-list">
+            @{
+                foreach (var item in Model)
+                {
+                    <li class="product-wrapper">
+                        <div class="product-item">
+                        <div class="example">
+                            <img src="@item.img">
+                            <div class="fadedbox">
+                            <div class="title text">@item.Description</div>
+                            </div>
+                        </div>
+                    <div class="product-list">
+                        <h3>@item.Name</h3>
+                        <span class="price">@item.Price гривень</span>
+                         <a class="button" asp-controller="ShopCart" asp-action="AddedToCart" asp-route-id="@item.Id">В кошик</a>
+                            <a class="button" asp-controller="ShopCart" asp-action="ReadyToPayment" asp-route-id="@item.Id">Оформити</a>
+                    </div>
+                </div>
+            </li>
+                }
+            }
+    </ul>
+</div>
